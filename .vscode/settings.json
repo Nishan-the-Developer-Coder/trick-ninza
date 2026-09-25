@@ -1,0 +1,8 @@
+{
+	"chat.tools.terminal.autoApprove": {
+		"/^cd \"c:\\\\Users\\\\TANUA GP\\\\Desktop\\\\Nishan's personal folder\\\\html files\\\\trick-ninza\\\\artifacts\\\\trick-ninza\"; python -m http\\.server 8000$/": {
+			"approve": true,
+			"matchCommandLine": true
+		}
+	}
+}

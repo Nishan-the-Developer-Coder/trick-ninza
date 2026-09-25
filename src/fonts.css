@@ -1,0 +1,132 @@
+/* varela-round-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Varela Round';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/varela-round-v21-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ==========================================================================
+  Maple Mono Normal Font Family
+   ========================================================================== */
+
+/* Regular & Italic */
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Thin (100) */
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-ThinItalic.woff2') format('woff2');
+  font-weight: 100;
+  font-style: italic;
+}
+
+/* Extra Light (200) */
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-ExtraLightItalic.woff2') format('woff2');
+  font-weight: 200;
+  font-style: italic;
+}
+
+/* Light (300) */
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-LightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Medium (500) */
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-MediumItalic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Semi Bold (600) */
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-SemiBoldItalic.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Bold (700) */
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Extra Bold (800) */
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maple Mono Normal';
+  src: url('../fonts/MapleMonoNormal-ExtraBoldItalic.woff2') format('woff2');
+  font-weight: 800;
+  font-style: italic;
+}

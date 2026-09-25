@@ -1,0 +1,13 @@
+# Trick-Ninza
+
+> A friendly static math-practice site for learning addition and subtraction mental-math tricks through interactive practice.
+
+## About
+
+Trick-Ninza teaches addition and subtraction mental-math shortcuts with clear explanations, worked examples, trick-specific quizzes, and randomly generated interactive puzzles.
+
+## Key Pages
+
+- [Home](index.html) - Introduction to Trick-Ninza and a starting point for practice.
+- [Addition](addition.html) - Addition mental-math tricks, examples, and interactive quizzes.
+- [Subtraction](subtraction.html) - Subtraction mental-math tricks, examples, and interactive quizzes.
