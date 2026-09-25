@@ -677,8 +677,8 @@ select:focus-visible {
 	border-radius: 50%;
 	background: var(--primary);
 }
-.welcome-button,
-.welcome-button:visited {
+.home-button,
+.home-button:visited {
 	display: inline-flex;
 	align-items: center;
 	border: 1px solid var(--line);
