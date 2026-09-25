@@ -1,7 +1,7 @@
 # ⌨️ Trick-Ninza
 
-![GitHub stars](https://img.shields.io/github/stars/nishansinghagomunda-sys/trick-ninza?style=flat-square)
-![License](https://img.shields.io/github/license/nishansinghagomunda-sys/trick-ninza?style=flat-square)
+![GitHub stars](https://img.shields.io/github/stars/Nishan-the-Developer-Coder/trick-ninza?style=flat-square)
+![License](https://img.shields.io/github/license/Nishan-the-Developer-Coder/trick-ninza?style=flat-square)
 ![Static site](https://img.shields.io/badge/site-static-blue?style=flat-square)
 ![JavaScript](https://img.shields.io/badge/language-JavaScript-yellow?style=flat-square)
 
