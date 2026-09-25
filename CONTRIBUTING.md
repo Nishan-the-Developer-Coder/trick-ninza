@@ -14,7 +14,7 @@ Each trick should include:
 
 - a unique `id`
 - a clear `title` and a short `description`
-- a MathJax-friendly `formula`
+- a friendly `formula`
 - three or more ordered `steps`
 - an estimated `duration`
 - a small label that tells the learner what the trick is good for
