@@ -4,6 +4,7 @@
 #ignore css files
 *.css
 !styles.css
+!fonts.css
 
 #ignore agent browsing files
 llms.txt
