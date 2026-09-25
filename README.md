@@ -4,6 +4,7 @@
 ![License](https://img.shields.io/github/license/Nishan-the-Developer-Coder/trick-ninza?style=round-square)
 ![Static site](https://img.shields.io/badge/site-static-blue?style=round-square)
 ![JavaScript](https://img.shields.io/badge/language-JavaScript-yellow?style=round-square)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9df94ab9-ebc8-45c3-baac-39880a03037d/deploy-status)](https://app.netlify.com/projects/mathtrickninza/deploys)
 
 A friendly math practice space for students to learn fast mental-math tricks through short lessons, guided examples, and quick puzzle practice.
 
@@ -80,7 +81,8 @@ Then open http://localhost:8000 in your browser to view the app locally.
 - **GitHub Copilot in VS Code** — edits
 - **Claude** — guidelines
 - **Gemini** — images
-- **GitHub** — publication
+- **GitHub** — public avaibility
+- **Gihub Pages** - web public deploy
 - **Nishan singha** — building this web
 
 ## License

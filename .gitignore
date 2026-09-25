@@ -1,0 +1,11 @@
+#ignore vscode files
+.vscode/
+
+#ignore css files
+*.css
+!styles.css
+
+#ignore agent browsing files
+llms.txt
+robots.txt
+sitemap.xml
