@@ -1,5 +1,7 @@
 # ⌨️ Trick-Ninza
 
+[![GitHub stars](https://shields.io)](https://github.com) 
+[![GitHub forks](https://shields.io)](https://github.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Static site](https://img.shields.io/badge/site-static-blue?style=flat-square)
 ![JavaScript](https://img.shields.io/badge/language-JavaScript-yellow?style=flat-square)
