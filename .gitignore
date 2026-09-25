@@ -5,6 +5,7 @@
 *.css
 !styles.css
 !fonts.css
+!material-symbols.css
 
 #ignore agent browsing files
 llms.txt
