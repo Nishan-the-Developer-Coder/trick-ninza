@@ -65,7 +65,7 @@ For a future production version, this content can move into a typed JSON or data
 ## Clone this web locally
 
 ```bash
-git clone <repository-url>
+git clone <https://github.com/Nishan-the-Developer-Coder/trick-ninza>
 cd trick-ninza
 python -m http.server 8000
 ```
