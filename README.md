@@ -82,7 +82,7 @@ Then open http://localhost:8000 in your browser to view the app locally.
 - **Gemini** — images
 - **GitHub** — public avaibility
 - **Gihub Pages** - web public deploy
-- **Nishan singha** — building this web
+- **Me** — building this web
 
 ## License
 
