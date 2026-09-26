@@ -760,6 +760,7 @@ const state = {
 	action: null,
 	activeTrick: null,
 	mobileNav: false,
+	infoOpen: false,
 	routine: false,
 	hintLevel: 0,
 	nudgeIndex: Math.floor(Math.random() * 3),
@@ -1234,15 +1235,16 @@ function equationStack(onDark = false, subject = "addition") {
 // Render answer choices and preserve the selected result for a quiz item.
 function quizCard(item, anotherLabel = "Another question", puzzle = false) {
 	const picked = state.answers[item.id];
+	const hasPicked = picked !== undefined;
 	return `<div class="quiz-card" data-quiz="${esc(item.id)}">
 	<div class="quiz-meta"><span class="difficulty">${esc(item.difficulty)}</span><span>Try it without writing first</span></div>
 	<p class="quiz-prompt">${esc(item.prompt)}<span class="quiz-equation">${esc(item.equation)} = ?</span></p>
 	<div class="choices">${item.choices
 		.map((choice) => {
-			const className = picked
+			const className = hasPicked
 				? `${choice === item.answer ? "correct" : choice === picked ? "wrong" : ""} ${choice === picked ? "selected" : ""}`.trim()
 				: "";
-			return `<button class="choice ${className}" data-action="answer" data-question="${esc(item.id)}" data-choice="${esc(choice)}">${esc(choice)}</button>`;
+			return `<button class="choice ${className}" data-action="answer" data-question="${esc(item.id)}" data-choice="${esc(choice)}" aria-pressed="${choice === picked}" ${hasPicked ? "disabled" : ""}>${esc(choice)}</button>`;
 		})
 		.join("")}</div>
 	${picked ? `<p class="feedback">${picked === item.answer ? icon("✓") + ` Nice. ${esc(item.explanation)}` : icon("↻") + " Almost. Look at the trick label and try the move again."}</p>` : ""}
@@ -1366,7 +1368,7 @@ function workspaceView() {
 	<aside class="sidebar">${brand(true)}<p class="side-label">Your practice</p><nav class="side-nav">
 	<button class="${state.view === "learn" ? "active" : ""}" data-action="learn">${icon("▤")} Learn tricks ${state.view === "learn" ? '<span class="count">●</span>' : ""}</button>
 	<button class="${state.view === "puzzles" ? "active" : ""}" data-action="puzzles">${icon("◇")} Puzzles</button>
-	</nav><div class="streak"><span class="accent">${icon("🏆")}</span><p class="streak-title">Tiny streak</p><p class="streak-copy">Two warm-ups this week. Keep it light.</p><div class="progress" style="margin-top:12px"><span></span></div></div></aside>
+	</nav><div class="streak"><span class="accent">${icon("🏆")}</span><p class="streak-title">Tiny streak</p><p class="streak-copy">Two warm-ups this week. Keep it light.</p><div class="progress" style="margin-top:12px"><span></span></div></div><button class="sidebar-info-button" data-action="open-info">${icon("ⓘ")}<span>About</span></button></aside>
 	<div class="workspace-main">
 	<header class="topbar"><div class="mobile-brand">${brand(true)}<button class="mobile-menu-button" data-action="mobile-menu" aria-label="Open menu">${state.mobileNav ? "×" : "☰"}</button></div><div class="desktop-heading"><p class="top-kicker">A good day to try</p><p class="top-title">${state.view === "puzzles" ? "Your puzzle room" : "Your learning nook"}</p></div><div class="top-actions"><span class="status-pill">Practice</span><a class="home-button" href="index.html" data-action="exit">Home</a></div>${state.mobileNav ? `<nav class="mobile-nav"><button class="${state.view === "learn" ? "active" : ""}" data-action="learn">${icon("▤")} Learn tricks</button><button class="${state.view === "puzzles" ? "active" : ""}" data-action="puzzles">${icon("◇")} Puzzles</button></nav>` : ""}</header>
 	<main class="workspace-content">
@@ -1374,7 +1376,7 @@ function workspaceView() {
 	<footer class="workspace-footer"><span>${icon("✦")} Made for curious minds</span><span class="mono">practice / pause / repeat</span></footer>
 	</main>
 	</div>
-</div>`;
+</div>${state.infoOpen ? `<div class="info-overlay" data-info-overlay><section class="info-card" role="dialog" aria-modal="true" aria-labelledby="info-title" aria-describedby="info-description"><button class="info-close" data-action="close-info" aria-label="Close information">&times;</button><div class="info-card-mark" aria-hidden="true">${icon("ⓘ")}</div><h2 id="info-title">Math Trick Ninza</h2><p id="info-description">Discover fast mental calculation tricks that make everyday maths feel simpler, quicker, and more fun.</p><a class="info-github-link" href="https://github.com/Nishan-the-Developer-Coder/trick-ninza" target="_blank" rel="noopener noreferrer" aria-label="Visit Math Trick Ninza on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.75-1.32-3.75-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.77 2.17 3.18 1.66.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.15-3-.11-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.12-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.29-2.61 5.24-5.1 5.51.4.35.75 1.02.75 2.06v3.05c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg><span>View on GitHub</span></a></section></div>` : ""}`;
 }
 
 // Rebuild the view while restoring the learner's current scroll position.
@@ -1422,10 +1424,24 @@ function openAction(trickId, action) {
 
 // Delegate all button interactions from the stable app mount point.
 app.addEventListener("click", (event) => {
+	if (event.target.matches("[data-info-overlay]")) {
+		state.infoOpen = false;
+		render();
+		app.querySelector('[data-action="open-info"]')?.focus();
+		return;
+	}
 	const target = event.target.closest("[data-action]");
 	if (!target) return;
 	const action = target.dataset.action;
-	if (action === "start") {
+	if (action === "open-info") {
+		state.infoOpen = true;
+		render();
+		app.querySelector('[data-action="close-info"]')?.focus();
+	} else if (action === "close-info") {
+		state.infoOpen = false;
+		render();
+		app.querySelector('[data-action="open-info"]')?.focus();
+	} else if (action === "start") {
 		event.preventDefault();
 		if (pageName === "home") {
 			navigateToPage("addition.html");
@@ -1481,12 +1497,14 @@ app.addEventListener("click", (event) => {
 			render();
 		}
 	} else if (action === "answer") {
-		state.answers[target.dataset.question] = target.dataset.choice;
+		const questionId = target.dataset.question;
+		if (state.answers[questionId] !== undefined) return;
+		state.answers[questionId] = target.dataset.choice;
 		const quiz = target.closest(".quiz-card");
 		const item =
 			state.view === "puzzles"
 				? state.puzzleQuestion
-				: questionsForTrick(state.activeTrick).find((questionItem) => questionItem.id === target.dataset.question);
+				: questionsForTrick(state.activeTrick).find((questionItem) => questionItem.id === questionId);
 		if (quiz && item) {
 			quiz.outerHTML = quizCard(item, state.view === "puzzles" ? "Another random puzzle" : "Another question", state.view === "puzzles");
 		} else {
@@ -1552,6 +1570,14 @@ app.addEventListener("click", (event) => {
 	} else if (action === "play-video") {
 		target.textContent = "✓";
 		target.setAttribute("aria-label", "Video overview ready");
+	}
+});
+
+app.addEventListener("keydown", (event) => {
+	if (event.key === "Escape" && state.infoOpen) {
+		state.infoOpen = false;
+		render();
+		app.querySelector('[data-action="open-info"]')?.focus();
 	}
 });
 
