@@ -777,6 +777,8 @@ if (state.subject === "subtraction") {
 
 // Cache the app mount point and flatten questions for the puzzle room.
 const app = document.getElementById("app");
+const appLoadingStartedAt = performance.now();
+const minimumLoadingTime = 500;
 const allQuestions = Object.values(quizQuestions).flat();
 // Nudges rotate on reload and every minute, with different prompts per subject.
 const nudgeSets = {
@@ -1573,7 +1575,8 @@ app.addEventListener("change", (event) => {
 	}
 });
 
-// Render immediately, then keep the nudge card fresh while the page is open.
+// Keep the loader visible briefly, then keep the nudge card fresh while the page is open.
 injectStructuredData();
-render();
+const remainingLoadingTime = Math.max(0, minimumLoadingTime - (performance.now() - appLoadingStartedAt));
+window.setTimeout(render, remainingLoadingTime);
 window.setInterval(rotateNudge, 60_000);

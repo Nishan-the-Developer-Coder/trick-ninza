@@ -43,8 +43,8 @@ select:focus-visible {
 	outline: 3px solid var(--primary-dark);
 	outline-offset: 3px;
 }
-	/* Googlebot still reads this perfectly, but it is invisible to users */
-	.seo-preload-text {
+/* Googlebot still reads this perfectly, but it is invisible to users */
+.seo-preload-text {
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -54,31 +54,55 @@ select:focus-visible {
 	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
 	border: 0;
-	}
-	/* Styles for your slow-connection loading screen */
-	.app-loading-screen {
+}
+/* Styles for your slow-connection loading screen */
+.app-loading-screen {
+	position: fixed;
+	inset: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	font-family: sans-serif;
-	min-height: 50vh;
+	gap: 14px;
+	font-family: var(--font);
+	min-height: 100vh;
+	width: 100%;
+	background: var(--bg);
 	color: #555;
+}
+/* A simple, clean loading spinner animation */
+.spinner {
+	width: 72px;
+	height: 72px;
+	overflow: visible;
+}
+.spinner-track,
+.spinner-progress {
+	fill: none;
+	stroke-width: 8;
+}
+.spinner-track {
+	stroke: #dcecf3;
+}
+.spinner-progress {
+	stroke: var(--primary);
+	stroke-linecap: round;
+	stroke-dasharray: 188.5 188.5;
+	stroke-dashoffset: 188.5;
+	transform: rotate(-90deg);
+	transform-origin: 36px 36px;
+	animation: spinner-progress 500ms linear infinite;
+}
+.app-loading-screen p {
+	margin: 0;
+	font-size: 1.1rem;
+	font-weight: 700;
+}
+@keyframes spinner-progress {
+	to {
+		stroke-dashoffset: 0;
 	}
-	/* A simple, clean loading spinner animation */
-	.spinner {
-	width: 40px;
-	height: 40px;
-	border: 4px solid #f3f3f3;
-	border-top: 4px solid #3498db; /* Match your app's theme color */
-	border-radius: 50%;
-	animation: spin 1s linear infinite;
-	margin-bottom: 12px;
-	}
-	@keyframes spin {
-	0% { transform: rotate(0deg); }
-	100% { transform: rotate(360deg); }
-	}
+}
 .app-shell {
 	min-height: 100vh;
 	position: relative;
