@@ -39,14 +39,15 @@ My web checklist→⁠_⁠→
 - [ ] **4. Improved Info Panel**
 
 ### 📈 Phase 2: Retention & Offline
-- [ ] **5. Gamification & Scores**
-- [ ] **6. Offline PWA Support**
-- [ ] **7. Structured Math Schema**
+- [ ] **5.Migrate to HTML5**
+- [ ] **6. Gamification & Scores**
+- [ ] **7. Offline PWA Support**
+- [ ] **8. Structured Math Schema**
 
 ### 📱 Phase 3: Android App Build
-- [ ] **8. Mobile Wrapper Setup** 
-- [ ] **9. Android Optimizations**
-- [ ] **10. Play Store Compile**
+- [ ] **9. Mobile Wrapper Setup** 
+- [ ] **10. Android Optimizations**
+- [ ] **11. Play Store Compile**
 
 
 ## Project structure ╰⁠(⁠ ⁠･⁠ ⁠ᗜ⁠ ⁠･⁠ ⁠)⁠➝
