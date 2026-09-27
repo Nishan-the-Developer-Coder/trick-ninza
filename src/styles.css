@@ -43,7 +43,7 @@ select:focus-visible {
 	outline: 3px solid var(--primary-dark);
 	outline-offset: 3px;
 }
-/* Googlebot still reads this perfectly, but it is invisible to users */
+/* Keep fallback copy in the document while hiding it from the visual layout. */
 .seo-preload-text {
 	position: absolute;
 	width: 1px;
@@ -55,7 +55,7 @@ select:focus-visible {
 	white-space: nowrap;
 	border: 0;
 }
-/* Styles for your slow-connection loading screen */
+/* Show a stable first paint while the app initializes. */
 .app-loading-screen {
 	position: fixed;
 	inset: 0;
@@ -70,7 +70,6 @@ select:focus-visible {
 	background: var(--bg);
 	color: #555;
 }
-/* A simple, clean loading spinner animation */
 .spinner {
 	width: 72px;
 	height: 72px;

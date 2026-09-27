@@ -731,7 +731,6 @@ const quizQuestions = {
 	],
 };
 
-// HTML data attributes select the initial page and subject without duplicating app logic.
 const pageName = document.body.dataset.page || "home";
 const pageSubject = document.body.dataset.subject || "addition";
 
@@ -751,7 +750,6 @@ const initialState = {
 	},
 };
 
-// Mutable UI state is rendered into the app after each meaningful interaction.
 const state = {
 	screen: initialState[pageName]?.screen || "landing",
 	view: "learn",
@@ -776,7 +774,6 @@ if (state.subject === "subtraction") {
 	state.expanded = "sub-base";
 }
 
-// Cache the app mount point and flatten questions for the puzzle room.
 const app = document.getElementById("app");
 const appLoadingStartedAt = performance.now();
 const minimumLoadingTime = 500;
@@ -866,7 +863,6 @@ function esc(value) {
 	);
 }
 
-// Map the app's compact symbols to the Material Symbols font names.
 const materialIconMap = {
 	"✦": "auto_awesome",
 	"▤": "routine",
@@ -891,13 +887,11 @@ const materialIconMap = {
 	"♠": "lightbulb",
 };
 
-// Render one consistently styled icon, optionally with screen-reader text.
 function icon(symbol, label = "") {
 	const iconName = materialIconMap[symbol] || symbol;
 	return `<span class="icon material-symbols-rounded" aria-hidden="true">${iconName}</span>${label ? `<span class="sr-only">${label}</span>` : ""}`;
 }
 
-// Build the shared brand mark for landing, desktop, and mobile navigation.
 function brand(compact = false) {
 	return `<div class="brand">
 	<span class="brand-mark" aria-hidden="true"><img class="brand-mark-icon" src="public/favicon.png" alt="Trick-Ninza Logo"></span>
@@ -905,24 +899,20 @@ function brand(compact = false) {
 </div>`;
 }
 
-// Resolve the currently selected subject from the shared subject registry.
 function currentSubject() {
 	return subjects[state.subject];
 }
 
-// Find a trick across all subjects for panels opened from the current view.
 function trickById(id) {
 	return Object.values(subjects)
 		.flatMap((subject) => subject.tricks)
 		.find((trick) => trick.id === id);
 }
 
-// Return the fixed quiz items associated with one trick.
 function questionsForTrick(id) {
 	return quizQuestions[id] || [];
 }
 
-// Generate an inclusive random integer for fresh puzzle values.
 function randomInt(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -937,7 +927,6 @@ function shuffle(items) {
 	return shuffled;
 }
 
-// Build four answer choices with the correct answer in a random position.
 function generatedOptions(answer, offsets = [-1, 1, 2]) {
 	const numericAnswer = Number(answer);
 	const distractors = offsets.map((offset) => String(numericAnswer + offset));
@@ -952,6 +941,7 @@ function generatedQuestion(trickId) {
 	let explanation = "Check the place values and apply the highlighted shortcut.";
 	let offsets = [-1, 1, 2];
 
+	// Mixed-number answers need explicit distractors; numeric offsets cannot represent them.
 	switch (trickId) {
 		case "add-left-right": {
 			const left = randomInt(200, 800);
@@ -1165,13 +1155,12 @@ function generatedQuestion(trickId) {
 	);
 }
 
-// Package generated values into the same quiz shape used by fixed questions.
 function makeGeneratedQuestion(trickId, prompt, equation, answer, explanation, distractors) {
 	const options = shuffle([...new Set([String(answer), ...distractors])]).slice(0, 4);
 	return question(`generated-${trickId}-${Date.now()}-${Math.random()}`, trickId, prompt, equation, options, String(answer), explanation, "fresh");
 }
 
-// Pick a different trick when the puzzle room requests another question.
+// Choose a trick at random for a newly generated puzzle.
 function randomQuestion(excludeId = "") {
 	const trickIds = Object.values(subjects)
 		.flatMap((subject) => subject.tricks)
@@ -1180,7 +1169,6 @@ function randomQuestion(excludeId = "") {
 	return generatedQuestion(trickIds[randomInt(0, trickIds.length - 1)] || "add-left-right");
 }
 
-// Render the public landing screen before the learner enters the workspace.
 function landingView() {
 	return `<main class="landing">
 	<nav class="landing-nav">
@@ -1221,7 +1209,6 @@ function landingView() {
 </main>`;
 }
 
-// Render the reusable horizontal-versus-stacked equation comparison.
 function equationStack(onDark = false, subject = "addition") {
 	const operation = subject === "subtraction" ? "-" : "+";
 	const answer = subject === "subtraction" ? "11" : "25";
@@ -1232,7 +1219,6 @@ function equationStack(onDark = false, subject = "addition") {
 </div>`;
 }
 
-// Render answer choices and preserve the selected result for a quiz item.
 function quizCard(item, anotherLabel = "Another question", puzzle = false) {
 	const picked = state.answers[item.id];
 	const hasPicked = picked !== undefined;
@@ -1252,7 +1238,6 @@ function quizCard(item, anotherLabel = "Another question", puzzle = false) {
 </div>`;
 }
 
-// Render the currently selected learn, video, or quiz panel inside a trick card.
 function actionPanel(trick) {
 	if (!state.action || state.activeTrick !== trick.id) return "";
 	const action = state.action;
@@ -1272,7 +1257,6 @@ function actionPanel(trick) {
 </div>`;
 }
 
-// Render one expandable trick row and its optional detail content.
 function trickRow(trick) {
 	const isExpanded = state.expanded === trick.id;
 	const iconClass = trick.tint === "coral" ? "coral" : trick.tint === "blue" ? "blue" : "";
@@ -1300,7 +1284,6 @@ function trickRow(trick) {
 </article>`;
 }
 
-// Render the subject-aware nudge card shown beside the trick list.
 function hintHelper() {
 	const nudges = nudgeSets[state.subject] || nudgeSets.addition;
 	const nudge = nudges[state.nudgeIndex % nudges.length];
@@ -1328,7 +1311,6 @@ function rotateNudge() {
 	hint.querySelector('[data-action="hint"]').textContent = "💡 Show a hint";
 }
 
-// Render the puzzle room around one generated question.
 function puzzleRoom() {
 	if (!state.puzzleQuestion) state.puzzleQuestion = randomQuestion();
 	const item = state.puzzleQuestion;
@@ -1339,10 +1321,8 @@ function puzzleRoom() {
 </section>`;
 }
 
-// Render the selected subject's trick shelf and supporting cards.
 function learnView() {
 	const subject = currentSubject();
-	// Check if subject exists before accessing its properties
 	if (!subject) {
 		return `<div class="error">Subject not found.</div>`;
 	}
@@ -1362,7 +1342,6 @@ function learnView() {
 </div>`;
 }
 
-// Render the persistent workspace shell, navigation, content, and footer.
 function workspaceView() {
 	return `<div class="workspace">
 	<aside class="sidebar">${brand(true)}<p class="side-label">Your practice</p><nav class="side-nav">
@@ -1403,7 +1382,7 @@ function render() {
 	}
 }
 
-// Replace only the action panel when a trick action is opened.
+// Update this panel in place so opening an action does not rebuild the workspace.
 function openAction(trickId, action) {
 	state.expanded = trickId;
 	state.activeTrick = trickId;
@@ -1422,7 +1401,7 @@ function openAction(trickId, action) {
 	}
 }
 
-// Delegate all button interactions from the stable app mount point.
+// Keep click handling on the stable mount point because render() replaces its contents.
 app.addEventListener("click", (event) => {
 	if (event.target.matches("[data-info-overlay]")) {
 		state.infoOpen = false;
