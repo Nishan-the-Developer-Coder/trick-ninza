@@ -885,7 +885,9 @@ const materialIconMap = {
 	ϟ: "auto_awesome",
 	"+": "add",
 	"♠": "lightbulb",
-};
+	"-": "conversion_path",
+	"=": "menu_book"
+}
 
 function icon(symbol, label = "") {
 	const iconName = materialIconMap[symbol] || symbol;
@@ -1273,7 +1275,7 @@ function trickRow(trick) {
 	<p class="trick-description">${esc(trick.description)}</p>
 	<div class="formula">${esc(trick.formula)}</div>
 	<div class="action-buttons">
-		<button class="action-button primary btn-press" data-action="open-action" data-trick="${esc(trick.id)}" data-panel-action="learn">${icon("▤")} Learn step-by-step</button>
+		<button class="action-button primary btn-press" data-action="open-action" data-trick="${esc(trick.id)}" data-panel-action="learn">${icon("-")} Learn step-by-step</button>
 		<button class="action-button btn-press" data-action="open-action" data-trick="${esc(trick.id)}" data-panel-action="video">${icon("▶")} Video overview</button>
 		<button class="action-button btn-press" data-action="open-action" data-trick="${esc(trick.id)}" data-panel-action="quiz">${icon("◇")} Quiz / puzzle</button>
 	</div>
@@ -1345,7 +1347,7 @@ function learnView() {
 function workspaceView() {
 	return `<div class="workspace">
 	<aside class="sidebar">${brand(true)}<p class="side-label">Your practice</p><nav class="side-nav">
-	<button class="${state.view === "learn" ? "active" : ""}" data-action="learn">${icon("▤")} Learn tricks ${state.view === "learn" ? '<span class="count">●</span>' : ""}</button>
+	<button class="${state.view === "learn" ? "active" : ""}" data-action="learn">${icon("=")} Learn tricks ${state.view === "learn" ? '<span class="count">●</span>' : ""}</button>
 	<button class="${state.view === "puzzles" ? "active" : ""}" data-action="puzzles">${icon("◇")} Puzzles</button>
 	</nav><div class="streak"><span class="accent">${icon("🏆")}</span><p class="streak-title">Tiny streak</p><p class="streak-copy">Two warm-ups this week. Keep it light.</p><div class="progress" style="margin-top:12px"><span></span></div></div><button class="sidebar-info-button" data-action="open-info">${icon("ⓘ")}<span>About</span></button></aside>
 	<div class="workspace-main">
