@@ -39,7 +39,7 @@ My web checklist→⁠_⁠→
 - [ ] **4. Improved Info Panel**
 
 ### 📈 Phase 2: Retention & Offline
-- [ ] **5.Migrate to HTML5**
+- [ ] **5. Migrate to HTML5**
 - [ ] **6. Gamification & Scores**
 - [ ] **7. Offline PWA Support**
 - [ ] **8. Structured Math Schema**
