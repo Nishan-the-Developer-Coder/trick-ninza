@@ -6,7 +6,6 @@
     --card: #ffffff;
     --primary: #2984a5;
     --primary-dark: #1e617f;
-    --primary-hover: #dff6fb;
     --primary-ink: #ffffff;
     --gold: #b9dfe9;
     --coral: #8dbfd5;
@@ -418,8 +417,6 @@ select:focus-visible,
 }
 .primary-button:hover,
 .action-button:hover {
-    background: var(--primary-hover);
-    border-color: var(--primary-hover);
     color: var(--ink);
 }
 .primary-button:active,
@@ -667,10 +664,8 @@ select:focus-visible,
     font-size: 24px;
     line-height: 1;
 }
-.info-close:hover {
-    background: var(--primary-hover);
-    color: var(--primary-dark);
-}
+/* prettier-ignore */
+.info-close:hover { color: var(--primary-dark); }
 .info-card-mark {
     display: grid;
     width: 48px;
