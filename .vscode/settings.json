@@ -1,8 +1,18 @@
 {
+	"files.autoSave": "afterDelay",
+	"files.autoSaveDelay": 1000,
+	"editor.formatOnSave": true,
+	"editor.inlineSuggest.enabled": true,
+
+  // --- 2. Faster Git Commit & Sync Workflow ---
+	"git.enableSmartCommit": true,
+	"git.confirmSync": false,
+	"git.postCommitCommand": "push",
+	"git.autofetch": true,
+
+  // --- 3. GitHub Copilot Auto-Approve Edits & Commands ---
+	"chat.tools.edits.autoApprove": true,
 	"chat.tools.terminal.autoApprove": {
-		"/^cd \"c:\\\\Users\\\\TANUA GP\\\\Desktop\\\\Nishan's personal folder\\\\html files\\\\trick-ninza\\\\artifacts\\\\trick-ninza\"; python -m http\\.server 8000$/": {
-			"approve": true,
-			"matchCommandLine": true
-		}
+    "/.*/": true
 	}
 }

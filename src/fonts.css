@@ -1,120 +1,120 @@
 /* Varela Round is the interface font; Maple Mono is used for equations. */
 @font-face {
-	font-display: swap;
-	font-family: "Varela Round";
-	font-style: normal;
-	font-weight: 400;
-	src: url("../fonts/varela-round-v21-latin-regular.woff2") format("woff2");
+    font-display: swap;
+    font-family: "Varela Round";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/varela-round-v21-latin-regular.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-Regular.woff2") format("woff2");
-	font-weight: 400;
-	font-style: normal;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-Italic.woff2") format("woff2");
-	font-weight: 400;
-	font-style: italic;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-Thin.woff2") format("woff2");
-	font-weight: 100;
-	font-style: normal;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-Thin.woff2") format("woff2");
+    font-weight: 100;
+    font-style: normal;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-ThinItalic.woff2") format("woff2");
-	font-weight: 100;
-	font-style: italic;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-ThinItalic.woff2") format("woff2");
+    font-weight: 100;
+    font-style: italic;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-ExtraLight.woff2") format("woff2");
-	font-weight: 200;
-	font-style: normal;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-ExtraLight.woff2") format("woff2");
+    font-weight: 200;
+    font-style: normal;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-ExtraLightItalic.woff2") format("woff2");
-	font-weight: 200;
-	font-style: italic;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-ExtraLightItalic.woff2") format("woff2");
+    font-weight: 200;
+    font-style: italic;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-Light.woff2") format("woff2");
-	font-weight: 300;
-	font-style: normal;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-LightItalic.woff2") format("woff2");
-	font-weight: 300;
-	font-style: italic;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-LightItalic.woff2") format("woff2");
+    font-weight: 300;
+    font-style: italic;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-Medium.woff2") format("woff2");
-	font-weight: 500;
-	font-style: normal;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-MediumItalic.woff2") format("woff2");
-	font-weight: 500;
-	font-style: italic;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-MediumItalic.woff2") format("woff2");
+    font-weight: 500;
+    font-style: italic;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-SemiBold.woff2") format("woff2");
-	font-weight: 600;
-	font-style: normal;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-SemiBoldItalic.woff2") format("woff2");
-	font-weight: 600;
-	font-style: italic;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-SemiBoldItalic.woff2") format("woff2");
+    font-weight: 600;
+    font-style: italic;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-Bold.woff2") format("woff2");
-	font-weight: 700;
-	font-style: normal;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-BoldItalic.woff2") format("woff2");
-	font-weight: 700;
-	font-style: italic;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-ExtraBold.woff2") format("woff2");
-	font-weight: 800;
-	font-style: normal;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-ExtraBold.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
 }
 
 @font-face {
-	font-family: "Maple Mono Normal";
-	src: url("../fonts/MapleMonoNormal-ExtraBoldItalic.woff2") format("woff2");
-	font-weight: 800;
-	font-style: italic;
+    font-family: "Maple Mono Normal";
+    src: url("../fonts/MapleMonoNormal-ExtraBoldItalic.woff2") format("woff2");
+    font-weight: 800;
+    font-style: italic;
 }

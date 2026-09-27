@@ -33,22 +33,24 @@ Built with plain HTML, CSS, and JavaScript.
 My web checklist→⁠_⁠→
 
 ### 🧮 Phase 1: Core & Customization
+
 - [ ] **1. Expand Basic Operators**
 - [ ] **2. Multiplication Engine**
 - [ ] **3. Settings Layout**
 - [ ] **4. Improved Info Panel**
 
 ### 📈 Phase 2: Retention & Offline
+
 - [ ] **5. Migrate to HTML5**
 - [ ] **6. Gamification & Scores**
 - [ ] **7. Offline PWA Support**
 - [ ] **8. Structured Math Schema**
 
 ### 📱 Phase 3: Android App Build
-- [ ] **9. Mobile Wrapper Setup** 
+
+- [ ] **9. Mobile Wrapper Setup**
 - [ ] **10. Android Optimizations**
 - [ ] **11. Play Store Compile**
-
 
 ## Project structure ╰⁠(⁠ ⁠･⁠ ⁠ᗜ⁠ ⁠･⁠ ⁠)⁠➝
 
