@@ -7,7 +7,7 @@
 
 A friendly math practice space for students to learn fast mental-math tricks through short lessons, guided examples, and quick puzzle practice.
 
-🔗 **Open the app in your browser** by visiting the project pages locally after cloning.
+🔗 **Open the web in your browser**
 
 ## What it does
 
@@ -18,7 +18,7 @@ A friendly math practice space for students to learn fast mental-math tricks thr
 
 Built with plain HTML, CSS, and JavaScript.
 
-## Features
+## Features 👉🏻
 
 - ➕ Ten addition tricks from the supplied **Fast Mental Addition Tricks** PDF
 - ➖ Ten subtraction tricks from the supplied **Fast Subtraction Tricks** PDF
@@ -28,7 +28,28 @@ Built with plain HTML, CSS, and JavaScript.
 - 🔄 Addition / Subtraction / Multiplication topic switching in the main learning flow
 - 🧩 Randomized puzzle generation and review-friendly structure for learning practice
 
-## Project structure
+## 🗺️ Math Trick Ninza Weekend Roadmap
+
+My web checklist→⁠_⁠→
+
+### 🧮 Phase 1: Core & Customization
+- [ ] **1. Expand Basic Operators**
+- [ ] **2. Multiplication Engine**
+- [ ] **3. Settings Layout**
+- [ ] **4. Improved Info Panel**
+
+### 📈 Phase 2: Retention & Offline
+- [ ] **5. Gamification & Scores**
+- [ ] **6. Offline PWA Support**
+- [ ] **7. Structured Math Schema**
+
+### 📱 Phase 3: Android App Build
+- [ ] **8. Mobile Wrapper Setup** 
+- [ ] **9. Android Optimizations**
+- [ ] **10. Play Store Compile**
+
+
+## Project structure ╰⁠(⁠ ⁠･⁠ ⁠ᗜ⁠ ⁠･⁠ ⁠)⁠➝
 
 ```text
 trick-ninza/
@@ -63,7 +84,7 @@ This content set is intentionally small so new PDF material can be reviewed befo
 
 For a future production version, this content can move into a typed JSON or database-backed layer without changing the lesson interactions.
 
-## Clone this web locally
+## Clone this web locally⁠ (⁠o⁠_⁠O⁠)⁠→
 
 ```bash
 git clone <https://github.com/Nishan-the-Developer-Coder/trick-ninza>
@@ -73,7 +94,7 @@ python -m http.server 8000
 
 Then open http://localhost:8000 in your browser to view the app locally.
 
-## Credits
+## Credits ✏️
 
 - **Replit** — root app creation
 - **VS Code** — code editing
