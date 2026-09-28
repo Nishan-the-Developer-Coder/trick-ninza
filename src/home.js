@@ -753,11 +753,11 @@ const initialState = {
 const state = {
 	screen: initialState[pageName]?.screen || "landing",
 	view: "learn",
+	sidebarCollapsed: false,
 	subject: initialState[pageName]?.subject || pageSubject || "addition",
 	expanded: "add-left-right",
 	action: null,
 	activeTrick: null,
-	mobileNav: false,
 	infoOpen: false,
 	routine: false,
 	hintLevel: 0,
@@ -886,8 +886,8 @@ const materialIconMap = {
 	"+": "add",
 	"♠": "lightbulb",
 	"-": "conversion_path",
-	"=": "menu_book"
-}
+	"=": "menu_book",
+};
 
 function icon(symbol, label = "") {
 	const iconName = materialIconMap[symbol] || symbol;
@@ -898,6 +898,7 @@ function brand(compact = false) {
 	return `<div class="brand">
     <a class="brand-mark" href="index.html" aria-label="Trick-Ninza home"><img class="brand-mark-icon" src="public/favicon.png" alt=""></a>
 	<span><span class="brand-name">Trick-Ninza</span>${compact ? "" : '<span class="brand-sub">math, made friendly, faster & easy</span>'}</span>
+	${compact ? `<button class="sidebar-collapse-button" data-action="toggle-sidebar" aria-label="${state.sidebarCollapsed ? "Expand" : "Collapse"} sidebar" title="${state.sidebarCollapsed ? "Expand" : "Collapse"} sidebar"><span class="sidebar-collapse-icon">${icon(state.sidebarCollapsed ? "chevron_right" : "chevron_left")}</span><span class="sidebar-collapse-hover-icon">${icon("keyboard_double_arrow_right")}</span></button>` : ""}
 </div>`;
 }
 
@@ -1346,12 +1347,12 @@ function learnView() {
 
 function workspaceView() {
 	return `<div class="workspace">
-	<aside class="sidebar">${brand(true)}<p class="side-label">Your practice</p><nav class="side-nav">
-	<button class="${state.view === "learn" ? "active" : ""}" data-action="learn">${icon("=")} Learn tricks ${state.view === "learn" ? '<span class="count">●</span>' : ""}</button>
-	<button class="${state.view === "puzzles" ? "active" : ""}" data-action="puzzles">${icon("◇")} Puzzles</button>
+	<aside class="sidebar ${state.sidebarCollapsed ? "is-collapsed" : ""}">${brand(true)}<p class="side-label">Your practice</p><nav class="side-nav" aria-label="Practice views">
+	<button class="${state.view === "learn" ? "active" : ""}" data-action="learn">${icon("=")}<span class="side-nav-label">Learn tricks</span>${state.view === "learn" ? '<span class="count">●</span>' : ""}</button>
+	<button class="${state.view === "puzzles" ? "active" : ""}" data-action="puzzles">${icon("◇")}<span class="side-nav-label">Puzzles</span></button>
 	</nav><div class="streak"><span class="accent">${icon("🏆")}</span><p class="streak-title">Tiny streak</p><p class="streak-copy">Two warm-ups this week. Keep it light.</p><div class="progress" style="margin-top:12px"><span></span></div></div><button class="sidebar-info-button" data-action="open-info">${icon("ⓘ")}<span>About</span></button></aside>
 	<div class="workspace-main">
-	<header class="topbar"><div class="mobile-brand">${brand(true)}<button class="mobile-menu-button" data-action="mobile-menu" aria-label="Open menu">${state.mobileNav ? "×" : "☰"}</button></div><div class="desktop-heading"><p class="top-kicker">A good day to try</p><p class="top-title">${state.view === "puzzles" ? "Your puzzle room" : "Your learning nook"}</p></div><div class="top-actions"><span class="status-pill">Practice</span><a class="home-button" href="index.html" data-action="exit">Home</a></div>${state.mobileNav ? `<nav class="mobile-nav"><button class="${state.view === "learn" ? "active" : ""}" data-action="learn">${icon("▤")} Learn tricks</button><button class="${state.view === "puzzles" ? "active" : ""}" data-action="puzzles">${icon("◇")} Puzzles</button></nav>` : ""}</header>
+	<header class="topbar"><div class="desktop-heading"><p class="top-kicker">A good day to try</p><p class="top-title">${state.view === "puzzles" ? "Your puzzle room" : "Your learning nook"}</p></div><div class="top-actions"><span class="status-pill">Practice</span><a class="home-button" href="index.html" data-action="exit">Home</a></div></header>
 	<main class="workspace-content">
 	${state.view === "puzzles" ? puzzleRoom() : learnView()}
 	<footer class="workspace-footer"><span>${icon("✦")} Made for curious minds</span><span class="mono">practice / pause / repeat</span></footer>
@@ -1445,7 +1446,13 @@ app.addEventListener("click", (event) => {
 			routineButton.innerHTML = `${icon("▤")} See a 10-minute routine`;
 			if (currentRoutine?.classList.contains("routine")) {
 				currentRoutine.classList.add("routine-closing");
-				currentRoutine.addEventListener("animationend", () => currentRoutine.remove(), { once: true });
+				const removeRoutine = () => currentRoutine.remove();
+				if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+					removeRoutine();
+				} else {
+					currentRoutine.addEventListener("animationend", removeRoutine, { once: true });
+					window.setTimeout(removeRoutine, 320);
+				}
 			}
 		}
 	} else if (action === "exit") {
@@ -1455,7 +1462,6 @@ app.addEventListener("click", (event) => {
 			return;
 		}
 		state.screen = "landing";
-		state.mobileNav = false;
 		render();
 		window.scrollTo(0, 0);
 	} else if (action === "expand") {
@@ -1511,15 +1517,14 @@ app.addEventListener("click", (event) => {
 		render();
 	} else if (action === "puzzles") {
 		state.view = "puzzles";
-		state.mobileNav = false;
 		render();
 	} else if (action === "learn") {
 		state.view = "learn";
-		state.mobileNav = false;
 		render();
-	} else if (action === "mobile-menu") {
-		state.mobileNav = !state.mobileNav;
+	} else if (action === "toggle-sidebar") {
+		state.sidebarCollapsed = !state.sidebarCollapsed;
 		render();
+		app.querySelector('[data-action="toggle-sidebar"]')?.focus();
 	} else if (action === "hint") {
 		const nudges = nudgeSets[state.subject] || nudgeSets.addition;
 		const hints = nudges[state.nudgeIndex % nudges.length].hints;
