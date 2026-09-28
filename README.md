@@ -7,7 +7,7 @@
 
 A friendly math practice space for students to learn fast mental-math tricks through short lessons, guided examples, and quick puzzle practice.
 
-🔗 **Open the web in your browser**
+🔗 [**Open the web in your browser**](https://nishan-the-developer-coder.github.io/trick-ninza/)
 
 ## What it does
 
