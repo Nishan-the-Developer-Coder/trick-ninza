@@ -1841,7 +1841,7 @@ select:focus-visible,
 		scroll-behavior: smooth;
 	}
 
-	:where(button:not(:disabled), a, input[type="number"], .trick-row, .select-wrap) {
+	:where(button:not(:disabled), a, select, input[type="number"], .trick-row, .select-wrap) {
 		transition:
 			transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
 			opacity 0.18s ease,
@@ -1858,7 +1858,7 @@ select:focus-visible,
 		transform: scale(0.98);
 	}
 
-	:where(button, a, input[type="number"]):focus-visible {
+	:where(button, a, select, input[type="number"]):focus-visible {
 		box-shadow: 0 0 0 3px rgba(41, 132, 165, 0.28);
 	}
 
