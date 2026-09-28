@@ -11,3 +11,14 @@
 llms.txt
 robots.txt
 sitemap.xml
+
+# Capacitor web staging output
+/www/
+
+# Android-generated files; keep native project sources versioned
+/android/.gradle/
+/android/**/build/
+/android/local.properties
+/android/capacitor-cordova-android-plugins/
+*.apk
+*.aab
