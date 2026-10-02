@@ -734,6 +734,39 @@ const quizQuestions = {
 const pageName = document.body.dataset.page || "home";
 const pageSubject = document.body.dataset.subject || "addition";
 
+function getPageTitle() {
+	if (pageName === "home") {
+		return "Math Trick Ninza | Friendly Mental Math Practice";
+	}
+	if (pageName === "addition") {
+		return "Math Trick Ninza | Addition Mental-Math Tricks";
+	}
+	if (pageName === "subtraction") {
+		return "Math Trick Ninza | Subtraction Mental-Math Tricks";
+	}
+	return "Math Trick Ninza | Mental Math Practice";
+}
+
+function syncPageMetadata() {
+	const title = getPageTitle();
+	document.title = title;
+
+	const ogTitle = document.querySelector('meta[property="og:title"]');
+	if (ogTitle) {
+		ogTitle.setAttribute("content", title);
+	}
+
+	const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+	if (twitterTitle) {
+		twitterTitle.setAttribute("content", title);
+	} else {
+		const meta = document.createElement("meta");
+		meta.name = "twitter:title";
+		meta.content = title;
+		document.head.appendChild(meta);
+	}
+}
+
 // Page defaults allow the shared script to power the landing, addition, and subtraction pages.
 const initialState = {
 	home: {
@@ -773,6 +806,8 @@ const state = {
 if (state.subject === "subtraction") {
 	state.expanded = "sub-base";
 }
+
+syncPageMetadata();
 
 const app = document.getElementById("app");
 const appLoadingStartedAt = performance.now();
@@ -1348,7 +1383,7 @@ function learnView() {
 function workspaceView() {
 	return `<div class="workspace">
 	<aside class="sidebar ${state.sidebarCollapsed ? "is-collapsed" : ""}">${brand(true)}<p class="side-label">Your practice</p><nav class="side-nav" aria-label="Practice views">
-	<button class="${state.view === "learn" ? "active" : ""}" data-action="learn">${icon("=")}<span class="side-nav-label">Learn tricks</span>${state.view === "learn" ? '<span class="count">●</span>' : ""}</button>
+	<button class="${state.view === "learn" ? "active" : ""}" data-action="learn">${icon("=")}<span class="side-nav-label">Learn tricks</span>${state.view === "learn" ? '<span class="count"></span>' : ""}</button>
 	<button class="${state.view === "puzzles" ? "active" : ""}" data-action="puzzles">${icon("◇")}<span class="side-nav-label">Puzzles</span></button>
 	</nav><div class="streak"><span class="accent">${icon("🏆")}</span><p class="streak-title">Tiny streak</p><p class="streak-copy">Two warm-ups this week. Keep it light.</p><div class="progress" style="margin-top:12px"><span></span></div></div><button class="sidebar-info-button" data-action="open-info">${icon("ⓘ")}<span>About</span></button></aside>
 	<div class="workspace-main">

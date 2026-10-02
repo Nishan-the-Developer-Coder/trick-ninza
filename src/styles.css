@@ -1653,33 +1653,37 @@ select:focus-visible,
 		padding: 12px 18px;
 	}
 	.sidebar-collapse-button {
-		display: none;
+		display: inline-flex;
 	}
 	.sidebar.is-collapsed {
 		width: 100%;
-		padding: 12px 18px;
+		grid-template-columns: minmax(0, 1fr) auto auto;
+		gap: 6px;
+		padding: 8px 12px;
 		align-items: stretch;
 	}
 	.sidebar.is-collapsed .brand {
 		width: auto;
-		gap: 8px;
+		min-width: 0;
+		gap: 6px;
 		justify-content: flex-start;
 	}
 	.sidebar.is-collapsed .brand-mark {
-		width: 48px;
-		height: 48px;
-		border-radius: 14px;
+		width: 36px;
+		height: 36px;
+		border-radius: 11px;
 	}
 	.sidebar.is-collapsed .brand-mark-icon {
-		width: 25px;
-		height: 25px;
+		width: 22px;
+		height: 22px;
 	}
-	.sidebar.is-collapsed .brand > span,
-	.sidebar.is-collapsed .streak,
-	.sidebar.is-collapsed .side-nav-label,
-	.sidebar.is-collapsed .side-nav .count,
-	.sidebar.is-collapsed .sidebar-info-button > span:not(.icon) {
-		display: initial;
+	.sidebar.is-collapsed .brand > span {
+		display: block;
+		min-width: 0;
+		flex: 1;
+	}
+	.sidebar.is-collapsed .brand-name {
+		font-size: 14px;
 	}
 	.sidebar > .brand {
 		grid-column: 1;
@@ -1694,8 +1698,10 @@ select:focus-visible,
 		align-items: stretch;
 	}
 	.sidebar.is-collapsed .side-nav {
+		grid-column: 2;
 		width: auto;
 		margin-top: 0;
+		gap: 2px;
 	}
 	.side-nav button {
 		flex: 1 1 0;
@@ -1705,9 +1711,11 @@ select:focus-visible,
 		font-size: 13px;
 	}
 	.sidebar.is-collapsed .side-nav button {
-		width: auto;
-		min-width: 0;
-		padding: 10px 12px;
+		flex: 0 0 36px;
+		width: 36px;
+		min-width: 36px;
+		min-height: 36px;
+		padding: 8px;
 	}
 	.streak {
 		grid-column: 1 / -1;
@@ -1748,10 +1756,13 @@ select:focus-visible,
 		padding: 8px 12px;
 	}
 	.sidebar.is-collapsed .sidebar-info-button {
-		width: auto;
-		min-width: 48px;
-		justify-content: flex-start;
-		padding: 8px 12px;
+		grid-column: 3;
+		grid-row: 1;
+		width: 40px;
+		min-width: 40px;
+		min-height: 40px;
+		justify-content: center;
+		padding: 8px;
 	}
 	.workspace-main {
 		height: auto;
