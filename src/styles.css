@@ -849,15 +849,6 @@ select:focus-visible,
 	font-size: 12px;
 	font-weight: 900;
 }
-.status-pill::before {
-	content: "";
-	display: inline-block;
-	width: 8px;
-	height: 8px;
-	margin-right: 7px;
-	border-radius: 50%;
-	background: var(--primary);
-}
 .home-button,
 .home-button:visited {
 	display: inline-flex;
