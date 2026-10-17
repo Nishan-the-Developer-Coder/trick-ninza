@@ -932,7 +932,7 @@ function icon(symbol, label = "") {
 function brand(compact = false) {
 	return `<div class="brand">
     <a class="brand-mark" href="index.html" aria-label="Trick-Ninza home"><img class="brand-mark-icon" src="public/favicon.png" alt=""></a>
-	<span><span class="brand-name">Trick-Ninza</span>${compact ? "" : '<span class="brand-sub">math, made friendly, faster & easy</span>'}</span>
+	<span><span class="brand-name">Trick-Ninza</span>${compact ? "" : '<span class="brand-sub">math, made friendly, faster & easy, a webapp made by Nishan</span>'}</span>
 	${compact ? `<button class="sidebar-collapse-button" data-action="toggle-sidebar" aria-label="${state.sidebarCollapsed ? "Expand" : "Collapse"} sidebar" title="${state.sidebarCollapsed ? "Expand" : "Collapse"} sidebar"><span class="sidebar-collapse-icon">${icon(state.sidebarCollapsed ? "chevron_right" : "chevron_left")}</span><span class="sidebar-collapse-hover-icon">${icon("keyboard_double_arrow_right")}</span></button>` : ""}
 </div>`;
 }
